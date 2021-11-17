@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: ru.netology.domain.RadioTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.068 s <<< FAILURE! - in ru.netology.domain.RadioTest
+setCurrentRadioStation  Time elapsed: 0.064 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <9>
+	at ru.netology.domain.RadioTest.setCurrentRadioStation(RadioTest.java:16)
+
