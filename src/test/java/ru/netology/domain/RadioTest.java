@@ -22,9 +22,9 @@ class RadioTest {
     //следующая радиостанция
     public void nextCurrentRadioStation() {
         Radio radio = new Radio();
-        radio.nextCurrentRadioStation(-1000);
+        radio.nextCurrentRadioStation();
 
-        int expected = 0;
+        int expected = 1;
         int actual = radio.currentRadioStation;
 
         assertEquals(expected, actual);
@@ -34,9 +34,9 @@ class RadioTest {
     //предыдущая радиостанция
     public void prevCurrentRadioStation() {
         Radio radio = new Radio();
-        radio.prevCurrentRadioStation(1);
+        radio.prevCurrentRadioStation();
 
-        int expected = 0;
+        int expected = 8;
         int actual = radio.currentRadioStation;
 
         assertEquals(expected, actual);
@@ -46,9 +46,9 @@ class RadioTest {
     //увеличение звука
     public void moreVolume() {
         Radio radio = new Radio();
-        radio.moreVolume(-1);
+        radio.moreVolume();
 
-        int expected = 0;
+        int expected = 1;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
@@ -58,9 +58,9 @@ class RadioTest {
     //уменьшение звука
     public void underVolume() {
         Radio radio = new Radio();
-        radio.underVolume(2);
+        radio.underVolume();
 
-        int expected = 1;
+        int expected = 0;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
@@ -72,32 +72,6 @@ class RadioTest {
     public void getCurrentVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(11);
-
-        int expected = 0;
-        int actual = radio.getCurrentVolume();
-
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
-    //макс громкость
-    public void maxCurrentVolume() {
-        Radio radio = new Radio();
-        radio.maxVolume(10);
-
-        int expected = 0;
-        int actual = radio.getCurrentVolume();
-
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
-    //мин громкость
-    public void minCurrentVolume() {
-        Radio radio = new Radio();
-        radio.minVolume(0);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
