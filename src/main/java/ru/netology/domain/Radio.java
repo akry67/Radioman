@@ -16,10 +16,8 @@ public class Radio {
     }
 
     public void nextCurrentRadioStation() {
-        if (currentRadioStation > 9) {
+        if (currentRadioStation >= 9) {
             this.currentRadioStation = 0;
-        }
-        if (currentRadioStation < 0) {
             return;
         }
         if (currentRadioStation < 9) {
@@ -30,8 +28,6 @@ public class Radio {
     public void prevCurrentRadioStation() {
         if (currentRadioStation <= 0) {
             this.currentRadioStation = 9;
-        }
-        if (currentRadioStation > 9) {
             return;
         }
         if (currentRadioStation >= 1) {
@@ -46,21 +42,36 @@ public class Radio {
 
     public void moreVolume() {
         //увеличение звука
-        if (currentVolume < 0) {
-            return;
-        }
         if (currentVolume < 10) {
             this.currentVolume = currentVolume + 1;
+        }
+        if (currentVolume > 10){
+            this.currentVolume = 10;
         }
     }
 
     public void underVolume() {
         //уменьшение звука
-        if (currentVolume > 10) {
-            return;
-        }
         if (currentVolume > 0) {
             this.currentVolume = currentVolume - 1;
+        }
+        if (currentVolume < 0){
+            this.currentVolume = 0;
+        }
+    }
+
+    public void maxVolume() {
+        //макс громкость
+        int maxVolume = 10;
+        if (maxVolume >= 10) {
+            currentVolume = 10;
+        }
+    }
+
+    public void minVolume() {
+        int minVolume = 0;
+        if (minVolume <= 0) {
+            currentVolume = 0;
         }
     }
 

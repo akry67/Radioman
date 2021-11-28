@@ -10,9 +10,9 @@ class RadioTest {
     //текущая радиостанция
     public void getCurrentRadioStation() {
         Radio radio = new Radio();
-        radio.setCurrentRadioStation(1);
+        radio.setCurrentRadioStation(-1000);
 
-        int expected = 1;
+        int expected = 0;
         int actual = radio.getCurrentRadioStation();
 
         assertEquals(expected, actual);
@@ -22,56 +22,92 @@ class RadioTest {
     //следующая радиостанция
     public void nextCurrentRadioStation() {
         Radio radio = new Radio();
+        radio.currentRadioStation = 9;
         radio.nextCurrentRadioStation();
 
-        int expected = 1;
+        int expected = 0;
         int actual = radio.currentRadioStation;
 
         assertEquals(expected, actual);
+
+
     }
 
     @Test
     //предыдущая радиостанция
     public void prevCurrentRadioStation() {
         Radio radio = new Radio();
+        radio.currentRadioStation = 1;
         radio.prevCurrentRadioStation();
 
-        int expected = 8;
+        int expected = 0;
         int actual = radio.currentRadioStation;
 
         assertEquals(expected, actual);
     }
 
-    @Test
-    //увеличение звука
-    public void moreVolume() {
-        Radio radio = new Radio();
-        radio.moreVolume();
 
-        int expected = 1;
+    @Test
+    // достижение максимальной громкости
+    public void maxVolume() {
+        Radio radio = new Radio();
+        radio.maxVolume();
+
+        int expected = 10;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
+
     }
 
     @Test
-    //уменьшение звука
-    public void underVolume() {
+    // достижение минимальной громкости
+    public void minVolume() {
         Radio radio = new Radio();
-        radio.underVolume();
+        radio.minVolume();
 
         int expected = 0;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
 
+
     }
+
+
+    @Test
+    //уменьшение звука
+    public void underVolume() {
+        Radio radio = new Radio();
+        radio.currentVolume = 3;
+        radio.underVolume();
+
+        int expected = 2;
+        int actual = radio.currentVolume;
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    //увеличение звука
+    public void moreVolume() {
+        Radio radio = new Radio();
+        radio.currentVolume = 7;
+        radio.moreVolume();
+
+        int expected = 8;
+        int actual = radio.currentVolume;
+
+        assertEquals(expected, actual);
+    }
+
 
     @Test
     //текущая громкость
     public void getCurrentVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(0);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
